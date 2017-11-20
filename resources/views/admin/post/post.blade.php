@@ -33,7 +33,9 @@
               @endforeach
             @endif
             
-            <form role="form">
+            <form role="form" action="{{ route('post.store') }}" method="post">
+            {{--  {{ csrf_field() }}  --}}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -41,7 +43,7 @@
                     <input name="title" type="text" class="form-control" id="title" placeholder="Enter title">
                   </div>
                   <div class="form-group">
-                    <label for="Title">Post Sub Title</label>
+                    <label for="Title">Post SubTitle</label>
                     <input name="subtitle" type="text" class="form-control" id="subtitle" placeholder="Enter Sub title">
                   </div>
                   <div class="form-group">
@@ -78,10 +80,8 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-                  <form>
                     <textarea class="textarea" name="body" placeholder="Place some text here"
                               style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                  </form>
                 </div>
               </div>
 
